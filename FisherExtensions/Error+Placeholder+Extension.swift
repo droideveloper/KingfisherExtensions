@@ -11,8 +11,30 @@ import Kingfisher
 
 extension UIImageView {
 	
+	public func circular(_ url: URL) {
+		let r = self.bounds.width / 2
+		let x = self.bounds.height / 2
+		if x != r {
+			// we do inform them and do the operation regardless of it
+			print("are you sure you want to convert it into circular image since your image is width: \(r * 2) height: \(x * 2)")
+		}
+		// if image is not square then we should say ops
+		roundedRect(url, r)
+	}
+	
+	public func roundedRect(_ url: URL, _ r: CGFloat) {
+		var options = defaultOptions
+		
+		let processors = DownsamplingImageProcessor(size: self.bounds.size)
+				>> RoundCornerImageProcessor(cornerRadius: r)
+		
+		options.append(.processor(processors))
+		// now do call it
+		load(url, options: options)
+	}
+	
 	// base load func
-	private func load(_ url: URL,
+	public func load(_ url: URL,
 										placeholder: String = defaultPlaceholder,
 										errorPlaceholder: String = defaultErrorPlaceholder,
 										options: KingfisherOptionsInfo = defaultOptions) {
