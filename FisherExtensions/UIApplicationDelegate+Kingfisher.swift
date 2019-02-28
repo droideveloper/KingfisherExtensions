@@ -1,5 +1,5 @@
 //
-//  Cache+Kingfisher.swift
+//  UIApplicationDelegate+Kingfisher.swift
 //  FisherExtensions
 //
 //  Created by Fatih Şen on 28.02.2019.
