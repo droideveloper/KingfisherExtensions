@@ -11,7 +11,7 @@ import Kingfisher
 
 extension UIImageView {
 	
-	public func circular(_ url: URL) {
+	public func loadCircularCrop(_ url: URL) {
 		let r = self.bounds.width / 2
 		let x = self.bounds.height / 2
 		if x != r {
@@ -19,10 +19,38 @@ extension UIImageView {
 			print("are you sure you want to convert it into circular image since your image is width: \(r * 2) height: \(x * 2)")
 		}
 		// if image is not square then we should say ops
-		roundedRect(url, r)
+		loadRoundedRectCrop(url, r)
 	}
 	
-	public func roundedRect(_ url: URL, _ r: CGFloat) {
+	// will load image with rounded rect and crop it center by default as image size
+	public func loadRoundedRectCrop(_ url: URL, _ r: CGFloat = defaultRoundRect, _ size: CGSize? = nil, _ pivot: CGPoint? = nil) {
+		let selfSize = size ?? self.bounds.size
+		let selfPivot = pivot ?? CGPoint(x: 0.5, y: 0.5)
+		
+		var options = defaultOptions
+		
+		let processors = CroppingImageProcessor(size: selfSize, anchor: selfPivot)
+			>> RoundCornerImageProcessor(cornerRadius: r)
+		
+		options.append(.processor(processors))
+		// now do cal it
+		load(url, options: options)
+	}
+	
+	// will load image circular
+	public func loadCircularScale(_ url: URL) {
+		let r = self.bounds.width / 2
+		let x = self.bounds.height / 2
+		if x != r {
+			// we do inform them and do the operation regardless of it
+			print("are you sure you want to convert it into circular image since your image is width: \(r * 2) height: \(x * 2)")
+		}
+		// if image is not square then we should say ops
+		loadRoundedRectScale(url, r)
+	}
+	
+	// will load image rectanguler by size
+	public func loadRoundedRectScale(_ url: URL, _ r: CGFloat = defaultRoundRect) {
 		var options = defaultOptions
 		
 		let processors = DownsamplingImageProcessor(size: self.bounds.size)
@@ -66,3 +94,5 @@ public let defaultOptions: KingfisherOptionsInfo = [
 public let defaultPlaceholder = "placeholder"
 
 public let defaultErrorPlaceholder = "errorPlaceholder"
+
+public let defaultRoundRect: CGFloat = 10
