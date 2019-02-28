@@ -10,7 +10,8 @@
 		3D538DD42226C639003230E3 /* FisherExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D538DCA2226C639003230E3 /* FisherExtensions.framework */; };
 		3D538DD92226C639003230E3 /* FisherExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D538DD82226C639003230E3 /* FisherExtensionsTests.swift */; };
 		3D538DDB2226C639003230E3 /* FisherExtensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D538DCD2226C639003230E3 /* FisherExtensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3DE447B62226C6F000B7907A /* Error+Placeholder+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE447B52226C6F000B7907A /* Error+Placeholder+Extension.swift */; };
+		3DBAA9E22227D68D00B009A5 /* UIApplicationDelegate+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DBAA9E12227D68D00B009A5 /* UIApplicationDelegate+Kingfisher.swift */; };
+		3DE447B62226C6F000B7907A /* UIImageView+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3DE447B52226C6F000B7907A /* UIImageView+Kingfisher.swift */; };
 		3F266448C750511C2BF63404 /* Pods_FisherExtensionsTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCBDD2818137B2D56EFF5C5C /* Pods_FisherExtensionsTests.framework */; };
 		6710C38B50C7BE134410BECA /* Pods_FisherExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4385268C504A8CE7C5B07FE5 /* Pods_FisherExtensions.framework */; };
 /* End PBXBuildFile section */
@@ -34,7 +35,8 @@
 		3D538DD32226C639003230E3 /* FisherExtensionsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FisherExtensionsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3D538DD82226C639003230E3 /* FisherExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FisherExtensionsTests.swift; sourceTree = "<group>"; };
 		3D538DDA2226C639003230E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3DE447B52226C6F000B7907A /* Error+Placeholder+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Placeholder+Extension.swift"; sourceTree = "<group>"; };
+		3DBAA9E12227D68D00B009A5 /* UIApplicationDelegate+Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplicationDelegate+Kingfisher.swift"; sourceTree = "<group>"; };
+		3DE447B52226C6F000B7907A /* UIImageView+Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Kingfisher.swift"; sourceTree = "<group>"; };
 		4385268C504A8CE7C5B07FE5 /* Pods_FisherExtensions.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FisherExtensions.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		46DC5BC1C83937A5523AC0E9 /* Pods-FisherExtensionsTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FisherExtensionsTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FisherExtensionsTests/Pods-FisherExtensionsTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AE3F02F427F8EF90509C512C /* Pods-FisherExtensions.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FisherExtensions.release.xcconfig"; path = "Pods/Target Support Files/Pods-FisherExtensions/Pods-FisherExtensions.release.xcconfig"; sourceTree = "<group>"; };
@@ -87,7 +89,8 @@
 			children = (
 				3D538DCD2226C639003230E3 /* FisherExtensions.h */,
 				3D538DCE2226C639003230E3 /* Info.plist */,
-				3DE447B52226C6F000B7907A /* Error+Placeholder+Extension.swift */,
+				3DE447B52226C6F000B7907A /* UIImageView+Kingfisher.swift */,
+				3DBAA9E12227D68D00B009A5 /* UIApplicationDelegate+Kingfisher.swift */,
 			);
 			path = FisherExtensions;
 			sourceTree = "<group>";
@@ -302,7 +305,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DE447B62226C6F000B7907A /* Error+Placeholder+Extension.swift in Sources */,
+				3DBAA9E22227D68D00B009A5 /* UIApplicationDelegate+Kingfisher.swift in Sources */,
+				3DE447B62226C6F000B7907A /* UIImageView+Kingfisher.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
