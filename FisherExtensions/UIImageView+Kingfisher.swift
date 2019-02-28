@@ -1,5 +1,5 @@
 //
-//  Error+Placeholder+Extension.swift
+//  UIImageView+Kingfisher.swift
 //  FisherExtensions
 //
 //  Created by Fatih Şen on 27.02.2019.
@@ -37,6 +37,15 @@ extension UIImageView {
 		load(url, options: options)
 	}
 	
+	public func loadCrop(_ url: URL) {
+		var options = defaultOptions
+		
+		let processors = CroppingImageProcessor(size: self.bounds.size, anchor: CGPoint(x: 0.5, y: 0.5))
+		
+		options.append(.processor(processors))
+		load(url, options: options)
+	}
+	
 	// will load image circular
 	public func loadCircularScale(_ url: URL) {
 		let r = self.bounds.width / 2
@@ -61,8 +70,17 @@ extension UIImageView {
 		load(url, options: options)
 	}
 	
+	public func loadScale(_ url: URL) {
+		var options = defaultOptions
+		
+		let processors = DownsamplingImageProcessor(size: self.bounds.size)
+		
+		options.append(.processor(processors))
+		load(url, options: options)
+	}
+	
 	// base load func
-	public func load(_ url: URL,
+	private func load(_ url: URL,
 										placeholder: String = defaultPlaceholder,
 										errorPlaceholder: String = defaultErrorPlaceholder,
 										options: KingfisherOptionsInfo = defaultOptions) {
