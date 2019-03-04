@@ -11,7 +11,7 @@ import Kingfisher
 
 extension UIImageView {
 	
-	public func loadCircularCrop(_ url: URL) {
+	public func loadCircularCrop(_ url: URL?) {
 		let r = self.bounds.width / 2
 		let x = self.bounds.height / 2
 		if x != r {
@@ -23,7 +23,7 @@ extension UIImageView {
 	}
 	
 	// will load image with rounded rect and crop it center by default as image size
-	public func loadRoundedRectCrop(_ url: URL, _ r: CGFloat = defaultRoundRect, _ size: CGSize? = nil, _ pivot: CGPoint? = nil) {
+	public func loadRoundedRectCrop(_ url: URL?, _ r: CGFloat = defaultRoundRect, _ size: CGSize? = nil, _ pivot: CGPoint? = nil) {
 		let selfSize = size ?? self.bounds.size
 		let selfPivot = pivot ?? CGPoint(x: 0.5, y: 0.5)
 		
@@ -37,7 +37,7 @@ extension UIImageView {
 		load(url, options: options)
 	}
 	
-	public func loadCrop(_ url: URL) {
+	public func loadCrop(_ url: URL?) {
 		var options = defaultOptions
 		
 		let processors = CroppingImageProcessor(size: self.bounds.size, anchor: CGPoint(x: 0.5, y: 0.5))
@@ -47,7 +47,7 @@ extension UIImageView {
 	}
 	
 	// will load image circular
-	public func loadCircularScale(_ url: URL) {
+	public func loadCircularScale(_ url: URL?) {
 		let r = self.bounds.width / 2
 		let x = self.bounds.height / 2
 		if x != r {
@@ -59,7 +59,7 @@ extension UIImageView {
 	}
 	
 	// will load image rectanguler by size
-	public func loadRoundedRectScale(_ url: URL, _ r: CGFloat = defaultRoundRect) {
+	public func loadRoundedRectScale(_ url: URL?, _ r: CGFloat = defaultRoundRect) {
 		var options = defaultOptions
 		
 		let processors = DownsamplingImageProcessor(size: self.bounds.size)
@@ -70,7 +70,7 @@ extension UIImageView {
 		load(url, options: options)
 	}
 	
-	public func loadScale(_ url: URL) {
+	public func loadScale(_ url: URL?) {
 		var options = defaultOptions
 		
 		let processors = DownsamplingImageProcessor(size: self.bounds.size)
@@ -80,7 +80,7 @@ extension UIImageView {
 	}
 	
 	// base load func
-	private func load(_ url: URL,
+	private func load(_ url: URL?,
 										placeholder: String = defaultPlaceholder,
 										errorPlaceholder: String = defaultErrorPlaceholder,
 										options: KingfisherOptionsInfo = defaultOptions) {
